@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="探索编程语言的历史演变之旅，从1940年代的计算机黎明到2020年代的AI革命。了解FORTRAN、C、Python、JavaScript等16种编程语言的历史和影响。Explore the history of programming languages from the 1940s to the 2020s, featuring 16 languages including FORTRAN, C, Python, and JavaScript.">
+    <meta property="og:title" content="编程语言博物馆 / Coding Museum">
+    <meta property="og:description" content="探索编程语言的历史演变之旅，从1940年代的计算机黎明到2020年代的AI革命。Explore the history of programming languages from the 1940s to the 2020s AI revolution.">
+    <meta property="og:type" content="website">
     <title>Coding Museum - Programming Language History</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header Section - Retro newspaper style masthead with navigation -->
     <header>
-        <nav aria-label="Main navigation">
+        <nav aria-label="Main navigation" role="navigation">
             <button id="hamburger-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            <ul class="nav-links">
-                <li><a href="#hero" data-zh="首页" data-en="Home">首页 / Home</a></li>
-                <li><a href="#1940s">1940s</a></li>
-                <li><a href="#1950s">1950s</a></li>
-                <li><a href="#1960s">1960s</a></li>
-                <li><a href="#1970s">1970s</a></li>
-                <li><a href="#1980s">1980s</a></li>
-                <li><a href="#1990s">1990s</a></li>
-                <li><a href="#2000s">2000s</a></li>
-                <li><a href="#2010s">2010s</a></li>
-                <li><a href="#2020s">2020s</a></li>
-                <li><a href="#ai-contrast" data-zh="尾声" data-en="Epilogue">尾声 / Epilogue</a></li>
-                <li><button id="lang-toggle" type="button" aria-label="Switch language">English</button></li>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#hero" role="menuitem" data-zh="首页" data-en="Home">首页 / Home</a></li>
+                <li role="none"><a href="#1940s" role="menuitem">1940s</a></li>
+                <li role="none"><a href="#1950s" role="menuitem">1950s</a></li>
+                <li role="none"><a href="#1960s" role="menuitem">1960s</a></li>
+                <li role="none"><a href="#1970s" role="menuitem">1970s</a></li>
+                <li role="none"><a href="#1980s" role="menuitem">1980s</a></li>
+                <li role="none"><a href="#1990s" role="menuitem">1990s</a></li>
+                <li role="none"><a href="#2000s" role="menuitem">2000s</a></li>
+                <li role="none"><a href="#2010s" role="menuitem">2010s</a></li>
+                <li role="none"><a href="#2020s" role="menuitem">2020s</a></li>
+                <li role="none"><a href="#ai-contrast" role="menuitem" data-zh="尾声" data-en="Epilogue">尾声 / Epilogue</a></li>
+                <li role="none"><button id="lang-toggle" type="button" aria-label="Switch language" role="menuitem">English</button></li>
             </ul>
         </nav>
     </header>
@@ -39,6 +43,7 @@
         <section id="hero">
             <article>
                 <h1 data-zh="编程语言博物馆" data-en="Coding Museum">编程语言博物馆 / Coding Museum</h1>
+                <h2 data-zh="欢迎来到编程语言历史的时间长廊" data-en="Welcome to the History of Programming Languages">欢迎来到编程语言历史的时间长廊 / Welcome to the History of Programming Languages</h2>
                 <p data-zh="探索编程语言的历史，从1940年代到2020年代的演变之旅" data-en="Explore the history of programming languages through the decades">探索编程语言的历史，从1940年代到2020年代的演变之旅 / Explore the history of programming languages through the decades</p>
             </article>
         </section>
@@ -383,8 +388,8 @@
 
     <!-- Footer Section - Credits and copyright -->
     <footer>
-        <nav aria-label="Footer navigation">
-            <ul>
+        <nav aria-label="Footer navigation" role="navigation">
+            <ul role="list">
                 <li><a href="#hero" data-zh="返回顶部" data-en="Back to Top">返回顶部 / Back to Top</a></li>
             </ul>
         </nav>
