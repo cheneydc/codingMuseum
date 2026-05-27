@@ -32,9 +32,64 @@ codingMuseum/
 
 This is a static website project. No build tools or dependencies are required.
 
-1. Clone or download the repository
-2. Open `index.html` in a web browser to view the website
-3. For local development, use any static file server or simply open files directly
+### Local Development Server
+
+To run the website locally, use Python's built-in HTTP server:
+
+```bash
+python3 -m http.server 8000
+```
+
+This will start a local development server at: http://localhost:8000
+
+**Expected Output:**
+```
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+```
+
+**Troubleshooting:**
+- If port 8000 is already in use, try a different port: `python3 -m http.server 8080`
+- If `python3` is not found, try `python -m http.server 8000`
+- To stop the server, press `Ctrl+C` in your terminal
+
+### Alternative Development Methods
+
+1. **Direct File Access**: Simply open `index.html` in a web browser (no server required)
+2. **VS Code Live Server**: Install the "Live Server" extension and use "Go Live" button
+3. **Other Static File Servers**: Any static file server (nginx, Apache, etc.) will work
+
+### File Organization Conventions
+
+- **index.html**: Main entry point, contains all HTML structure
+- **style.css**: All styles including CSS variables, reset, and component styles
+- **script.js**: All JavaScript functionality and interactivity
+- **assets/images/**: Language-related images and graphics
+- **assets/fonts/**: Custom fonts for vintage typography
+
+### Development Tools and Testing
+
+**Manual Browser Testing:**
+1. Start the local server: `python3 -m http.server 8000`
+2. Open http://localhost:8000 in your browser
+3. Test different features and interactions
+4. Make changes to code files
+5. Refresh the browser to see changes (no live reload)
+
+**Responsive Testing:**
+- Use browser DevTools (F12) to test different screen sizes
+- Toggle device toolbar in Chrome/Edge: DevTools > Toggle device toolbar (Ctrl+Shift+M)
+- Test common breakpoints: mobile (375px), tablet (768px), desktop (1024px+)
+- Test landscape and portrait orientations
+
+**Browser Testing:**
+- Chrome/Edge (most common)
+- Firefox (for cross-browser compatibility)
+- Safari (if available, for Apple ecosystem testing)
+
+**No Automated Testing:**
+- This project uses manual testing only
+- No test frameworks or automation tools required
+- Visual inspection and interactive testing are sufficient
 
 ## Design Philosophy
 

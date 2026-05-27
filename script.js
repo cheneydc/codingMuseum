@@ -4,11 +4,42 @@
 
 // Wait for DOM to be fully loaded before executing JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Future: Initialize interactive features
-    // Language timeline navigation
-    // Bilingual language switching
-    // Interactive exhibits functionality
-    
+    const langToggleBtn = document.getElementById('lang-toggle');
+    const STORAGE_KEY = 'museum-language';
+
+    function switchLanguage(lang) {
+        const elements = document.querySelectorAll('[data-zh]');
+
+        elements.forEach(element => {
+            const zhText = element.getAttribute('data-zh');
+            const enText = element.getAttribute('data-en');
+
+            if (lang === 'zh' && zhText) {
+                element.textContent = zhText;
+            } else if (lang === 'en' && enText) {
+                element.textContent = enText;
+            }
+        });
+
+        if (langToggleBtn) {
+            langToggleBtn.textContent = lang === 'zh' ? 'English' : '中文';
+        }
+
+        localStorage.setItem(STORAGE_KEY, lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    }
+
+    const savedLang = localStorage.getItem(STORAGE_KEY) || 'zh';
+    switchLanguage(savedLang);
+
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', function() {
+            const currentLang = localStorage.getItem(STORAGE_KEY) || 'zh';
+            const newLang = currentLang === 'zh' ? 'en' : 'zh';
+            switchLanguage(newLang);
+        });
+    }
+
     console.log('Coding Museum initialized successfully');
 });
 
@@ -20,6 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
 // ];
 
 // Future: Functions for interactive features
-// function switchLanguage(lang) { ... }
 // function scrollToDecade(decade) { ... }
 // function showExhibit(languageId) { ... }

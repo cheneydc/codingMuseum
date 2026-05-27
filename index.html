@@ -8,37 +8,237 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section - Retro newspaper style masthead -->
+    <!-- Header Section - Retro newspaper style masthead with navigation -->
     <header>
-        <!-- Future: Add newspaper-style header with logo, date, and navigation -->
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#hero" data-zh="首页" data-en="Home">首页 / Home</a></li>
+                <li><a href="#1940s">1940s</a></li>
+                <li><a href="#1950s">1950s</a></li>
+                <li><a href="#1960s">1960s</a></li>
+                <li><a href="#1970s">1970s</a></li>
+                <li><a href="#1980s">1980s</a></li>
+                <li><a href="#1990s">1990s</a></li>
+                <li><a href="#2000s">2000s</a></li>
+                <li><a href="#2010s">2010s</a></li>
+                <li><a href="#2020s">2020s</a></li>
+                <li><a href="#ai-contrast" data-zh="尾声" data-en="Epilogue">尾声 / Epilogue</a></li>
+                <li><button id="lang-toggle" type="button" aria-label="Switch language">English</button></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Main Content Section -->
     <main>
         <!-- Hero Section - Museum introduction -->
         <section id="hero">
-            <!-- Future: Add hero content with newspaper-style headline -->
+            <article>
+                <h1 data-zh="编程语言博物馆" data-en="Coding Museum">编程语言博物馆 / Coding Museum</h1>
+                <p data-zh="探索编程语言的历史，从1940年代到2020年代的演变之旅" data-en="Explore the history of programming languages through the decades">探索编程语言的历史，从1940年代到2020年代的演变之旅 / Explore the history of programming languages through the decades</p>
+            </article>
         </section>
 
-        <!-- Language Timeline Section - 10 programming languages across decades -->
-        <section id="timeline">
-            <!-- Future: Add timeline of programming languages from 1940s-2020s -->
+        <!-- 1940s Decade Section - The Dawn of Computing -->
+        <section id="1940s" aria-labelledby="heading-1940s">
+            <h2 id="heading-1940s" data-zh="1940s - 计算机的黎明" data-en="1940s - The Dawn of Computing">1940s - 计算机的黎明 / The Dawn of Computing</h2>
+            <!-- Placeholder: ENIAC (1946), first general-purpose electronic digital computer -->
+            <!-- Placeholder: Assembly languages begin -->
         </section>
 
-        <!-- Individual Language Exhibits Section -->
-        <section id="exhibits">
-            <!-- Future: Add detailed exhibits for each programming language -->
+        <!-- 1950s Decade Section - The First Programming Languages -->
+        <section id="1950s" aria-labelledby="heading-1950s">
+            <h2 id="heading-1950s" data-zh="1950s - 第一代编程语言" data-en="1950s - First Programming Languages">1950s - 第一代编程语言 / First Programming Languages</h2>
+            <!-- Languages: FORTRAN (1957), COBOL (1959), LISP (1958) -->
+            <article class="language-card" data-lang="FORTRAN" data-year="1957" data-category="scientific">
+                <header>
+                    <h3 data-zh="FORTRAN - 公式翻译语言" data-en="FORTRAN - Formula Translation">FORTRAN</h3>
+                    <time datetime="1957">1957</time>
+                </header>
+                <div class="card-content">
+                    <p data-zh="FORTRAN是世界上第一个广泛使用的高级编程语言，专为科学计算而设计。"
+                       data-en="FORTRAN was the first widely used high-level programming language, designed for scientific computing.">
+                        <!-- Placeholder for detailed content -->
+                    </p>
+                </div>
+                <footer>
+                    <span class="creator" data-zh="创造者: IBM团队" data-en="Creator: IBM Team">IBM Team</span>
+                    <span class="influence" data-zh="影响: 科学计算奠基语言" data-en="Influence: Foundation of scientific computing">Foundation of scientific computing</span>
+                </footer>
+            </article>
+            <!-- Placeholder: COBOL (1959) -->
+            <!-- Placeholder: LISP (1958) -->
         </section>
 
-        <!-- Interactive Features Section -->
-        <section id="interactive">
-            <!-- Future: Add interactive elements like language comparisons, quizzes -->
+        <!-- 1960s Decade Section - Dawn of Structured Programming -->
+        <section id="1960s" aria-labelledby="heading-1960s">
+            <h2 id="heading-1960s" data-zh="1960s - 结构化编程的萌芽" data-en="1960s - Dawn of Structured Programming">1960s - 结构化编程的萌芽 / Dawn of Structured Programming</h2>
+            <!-- Languages: ALGOL 60 (1960), BCPL (1967), Simula (1967), BASIC (1964) -->
+            <!-- Placeholder: ALGOL 60 (1960) -->
+            <!-- Placeholder: BCPL (1967) -->
+            <!-- Placeholder: Simula (1967) -->
+        </section>
+
+        <!-- 1970s Decade Section - The C Language Revolution -->
+        <section id="1970s" aria-labelledby="heading-1970s">
+            <h2 id="heading-1970s" data-zh="1970s - C语言革命" data-en="1970s - The C Language Revolution">1970s - C语言革命 / The C Language Revolution</h2>
+            <!-- Languages: C (1972), SQL (1974) -->
+            <!-- Placeholder: C (1972) -->
+            <!-- Placeholder: SQL (1974) -->
+        </section>
+
+        <!-- 1980s Decade Section - Object-Oriented Programming -->
+        <section id="1980s" aria-labelledby="heading-1980s">
+            <h2 id="heading-1980s" data-zh="1980s - 面向对象编程" data-en="1980s - Object-Oriented Programming">1980s - 面向对象编程 / Object-Oriented Programming</h2>
+            <!-- Languages: C++ (1985) -->
+            <!-- Placeholder: C++ (1985) -->
+        </section>
+
+        <!-- 1990s Decade Section - The Internet Age -->
+        <section id="1990s" aria-labelledby="heading-1990s">
+            <h2 id="heading-1990s" data-zh="1990s - 互联网时代" data-en="1990s - The Internet Age">1990s - 互联网时代 / The Internet Age</h2>
+            <!-- Languages: Python (1991), Java (1995), JavaScript (1995) -->
+            <!-- Placeholder: Python (1991) -->
+            <!-- Placeholder: Java (1995) -->
+            <!-- Placeholder: JavaScript (1995) -->
+        </section>
+
+        <!-- 2000s Decade Section - Modern Development Era -->
+        <section id="2000s" aria-labelledby="heading-2000s">
+            <h2 id="heading-2000s" data-zh="2000s - 现代开发时代" data-en="2000s - Modern Development Era">2000s - 现代开发时代 / Modern Development Era</h2>
+            <!-- Languages: C# (2000), PHP (2004), Go (2009) -->
+            <article class="language-card" data-lang="C#" data-year="2000" data-category="systems">
+                <header>
+                    <h3 data-zh="C# - 微软的面向对象语言" data-en="C# - Microsoft's Object-Oriented Language">C#</h3>
+                    <time datetime="2000">2000</time>
+                </header>
+                <div class="card-content">
+                    <p data-zh="C#是微软开发的多范式编程语言，为.NET框架设计。"
+                       data-en="C# is a multi-paradigm programming language developed by Microsoft, designed for the .NET framework.">
+                        <!-- Placeholder for detailed content -->
+                    </p>
+                </div>
+                <footer>
+                    <span class="creator" data-zh="创造者: Microsoft" data-en="Creator: Microsoft">Microsoft</span>
+                    <span class="influence" data-zh="影响: .NET生态核心语言" data-en="Influence: Core .NET ecosystem language">Core .NET ecosystem</span>
+                </footer>
+            </article>
+            <article class="language-card" data-lang="Go" data-year="2009" data-category="systems">
+                <header>
+                    <h3 data-zh="Go - Google的云原生语言" data-en="Go - Google's Cloud-Native Language">Go</h3>
+                    <time datetime="2009">2009</time>
+                </header>
+                <div class="card-content">
+                    <p data-zh="Go是Google开发的静态类型语言，专注于简洁、高效和并发。"
+                       data-en="Go is a statically typed language developed by Google, focusing on simplicity, efficiency, and concurrency.">
+                        <!-- Placeholder for detailed content -->
+                    </p>
+                </div>
+                <footer>
+                    <span class="creator" data-zh="创造者: Google" data-en="Creator: Google">Google</span>
+                    <span class="influence" data-zh="影响: 云原生与微服务" data-en="Influence: Cloud-native & microservices">Cloud-native computing</span>
+                </footer>
+            </article>
+            <!-- Placeholder: PHP (2004) -->
+        </section>
+
+        <!-- 2010s Decade Section - Contemporary Language Explosion -->
+        <section id="2010s" aria-labelledby="heading-2010s">
+            <h2 id="heading-2010s" data-zh="2010s - 当代语言爆发" data-en="2010s - Contemporary Language Explosion">2010s - 当代语言爆发 / Contemporary Language Explosion</h2>
+            <!-- Languages: Rust (2010), Kotlin (2011), TypeScript (2012), Swift (2014) -->
+            <article class="language-card" data-lang="Rust" data-year="2010" data-category="systems">
+                <header>
+                    <h3 data-zh="Rust - 内存安全的系统语言" data-en="Rust - Memory-Safe Systems Language">Rust</h3>
+                    <time datetime="2010">2010</time>
+                </header>
+                <div class="card-content">
+                    <p data-zh="Rust是多范式系统编程语言，专注于安全、并发和性能。"
+                       data-en="Rust is a multi-paradigm systems programming language focused on safety, concurrency, and performance.">
+                        <!-- Placeholder for detailed content -->
+                    </p>
+                </div>
+                <footer>
+                    <span class="creator" data-zh="创造者: Mozilla" data-en="Creator: Mozilla">Mozilla</span>
+                    <span class="influence" data-zh="影响: 内存安全革命" data-en="Influence: Memory safety revolution">Memory safety revolution</span>
+                </footer>
+            </article>
+            <article class="language-card" data-lang="TypeScript" data-year="2012" data-category="web">
+                <header>
+                    <h3 data-zh="TypeScript - 带类型的JavaScript" data-en="TypeScript - Typed JavaScript">TypeScript</h3>
+                    <time datetime="2012">2012</time>
+                </header>
+                <div class="card-content">
+                    <p data-zh="TypeScript是JavaScript的超集，添加了静态类型检查。"
+                       data-en="TypeScript is a strict syntactical superset of JavaScript that adds static type checking.">
+                        <!-- Placeholder for detailed content -->
+                    </p>
+                </div>
+                <footer>
+                    <span class="creator" data-zh="创造者: Microsoft" data-en="Creator: Microsoft">Microsoft</span>
+                    <span class="influence" data-zh="影响: Web开发类型安全" data-en="Influence: Web type safety">Web development type safety</span>
+                </footer>
+            </article>
+            <!-- Placeholder: Kotlin (2011) -->
+            <!-- Placeholder: Swift (2014) -->
+        </section>
+
+        <!-- 2020s Decade Section - The AI Revolution -->
+        <section id="2020s" aria-labelledby="heading-2020s">
+            <h2 id="heading-2020s" data-zh="2020s - AI革命时代" data-en="2020s - The AI Revolution">2020s - AI革命时代 / The AI Revolution</h2>
+            <!-- This section marks the transition from traditional programming to AI-assisted development -->
+            <article class="language-card" data-lang="AI Tools" data-year="2020s" data-category="ai">
+                <header>
+                    <h3 data-zh="AI工具时代 / The Age of AI Tools" data-en="AI Tools Era">AI Tools</h3>
+                    <time datetime="2020">2020s</time>
+                </header>
+                <div class="card-content">
+                    <p data-zh="AI代码生成工具如GitHub Copilot开始改变程序员的工作方式。"
+                       data-en="AI code generation tools like GitHub Copilot began changing how programmers work.">
+                        <!-- Placeholder for detailed content -->
+                    </p>
+                </div>
+                <footer>
+                    <span class="creator" data-zh="创造者: Various" data-en="Creator: Various">Various</span>
+                    <span class="influence" data-zh="影响: 编程范式转变" data-en="Influence: Programming paradigm shift">Programming paradigm shift</span>
+                </footer>
+            </article>
+        </section>
+
+        <!-- AI Contrast Finale Section - Museum's Grand Conclusion -->
+        <section id="ai-contrast" aria-labelledby="heading-ai-contrast">
+            <h2 id="heading-ai-contrast" data-zh="尾声: AI考古学家的视角" data-en="Epilogue: An AI Archaeologist's Perspective">尾声: AI考古学家的视角 / Epilogue: An AI Archaeologist's Perspective</h2>
+            <article>
+                <p data-zh="曾几何时，人类一行行地编写代码..."
+                   data-en="Once upon a time, humans wrote code line by line...">
+                    From this future AI perspective, all these programming languages are archaeological artifacts from a bygone era.
+                    The era when humans manually typed syntax, meticulously crafted algorithms, and debugged through trial and error.
+                </p>
+                <p data-zh="如今，AI视频编码（如Sora）和AI代码生成工具（如Copilot）正在重塑编程的本质。"
+                   data-en="Today, AI video coding (like Sora) and AI code generation tools (like Copilot) are reshaping the very nature of programming.">
+                    Future generations may never write a single line of code manually. They will simply describe what they want in natural language,
+                    and AI will bring their vision to life - in code, in video, in any medium they choose.
+                </p>
+                <p data-zh="这座博物馆不仅是对过去的致敬，更是对人类创造力在AI时代的新诠释。"
+                   data-en="This museum is not just a tribute to the past, but a reimagining of human creativity in the AI era.">
+                    The languages showcased here represent the foundation upon which the AI revolution was built.
+                    They are the stepping stones that brought us to this moment of transformation.
+                </p>
+            </article>
         </section>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer Section - Credits and copyright -->
     <footer>
-        <!-- Future: Add footer with credits, links, and copyright -->
+        <nav aria-label="Footer navigation">
+            <ul>
+                <li><a href="#hero" data-zh="返回顶部" data-en="Back to Top">返回顶部 / Back to Top</a></li>
+            </ul>
+        </nav>
+        <p>
+            <small data-zh="© 2026 编程语言博物馆<br/>Made with passion for programming history" data-en="© 2026 Coding Museum<br/>Made with passion for programming history">
+                © 2026 Coding Museum / 编程语言博物馆<br/>
+                Made with passion for programming history
+            </small>
+        </p>
     </footer>
 
     <!-- Script loaded at end of body for performance -->
