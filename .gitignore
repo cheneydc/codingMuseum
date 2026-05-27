@@ -1,0 +1,30 @@
+# Dependency directories
+node_modules/
+
+# macOS system files
+.DS_Store
+
+# OpenCode workspace files
+.omo/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# IDE files (if using any editor in future)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files (if added later)
+.env
+.env.local
+
+# Build outputs (if added later)
+dist/
+build/

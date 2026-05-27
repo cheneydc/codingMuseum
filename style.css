@@ -1,0 +1,42 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic Body Styling */
+body {
+    font-family: 'Times New Roman', Times, serif; /* Retro newspaper-style font */
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #f5f0e6; /* Paper-like background color */
+}
+
+/* Future: Header Section Styling */
+/* Newspaper-style masthead with vintage typography */
+/* header { ... } */
+
+/* Future: Hero Section Styling */
+/* Large headline with newspaper-style formatting */
+/* #hero { ... } */
+
+/* Future: Timeline Section Styling */
+/* Decade-based timeline with vintage aesthetics */
+/* #timeline { ... } */
+
+/* Future: Exhibits Section Styling */
+/* Individual language exhibits with museum card style */
+/* #exhibits { ... } */
+
+/* Future: Interactive Features Styling */
+/* Interactive elements with retro newspaper feel */
+/* #interactive { ... } */
+
+/* Future: Footer Section Styling */
+/* Vintage newspaper footer with credits and links */
+/* footer { ... } */
+
+/* Future: Responsive Design */
+/* Mobile-friendly layout for various screen sizes */
+/* @media queries ... */
