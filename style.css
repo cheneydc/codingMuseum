@@ -37,9 +37,10 @@ body {
     line-height: 1.6;
     color: var(--ink-color);
     background-color: var(--paper-color);
-    /* Subtle paper grain texture effect */
+    /* Subtle paper grain texture effect + aged tint + vignette */
     background-image: 
-        linear-gradient(rgba(245, 241, 232, 0.8), rgba(245, 241, 232, 0.8)),
+        radial-gradient(circle at center, transparent 0%, rgba(139, 69, 19, 0.05) 70%, rgba(139, 69, 19, 0.15) 100%),
+        linear-gradient(rgba(245, 241, 232, 0.9), rgba(245, 241, 232, 0.9)),
         url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
     background-size: cover;
     background-attachment: fixed;
@@ -73,10 +74,52 @@ main > section:last-child {
 }
 
 /* Responsive Breakpoints */
+/* Desktop Layout: >1200px → 3 columns, optimized font sizes */
+@media (min-width: 1200px) {
+    #hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    .language-card header h3 {
+        font-size: 1.6rem;
+    }
+    
+    body {
+        font-size: 1.05rem;
+    }
+}
+
 /* Tablet Layout: 768px to 1199px → 2 columns */
 @media (min-width: 768px) and (max-width: 1199px) {
     main {
         grid-template-columns: repeat(var(--grid-columns-tablet), 1fr);
+    }
+    
+    #hero h1 {
+        font-size: 2.5rem;
+        animation: 
+            typewriter 3s steps(30, end) 1s 1 normal both,
+            blinkCursor 1s step-end infinite;
+    }
+    
+    #hero {
+        padding: 2rem 0;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .language-card {
+        padding: 1.3rem;
+    }
+    
+    main > section {
+        gap: 1.75rem;
     }
 }
 
@@ -92,6 +135,48 @@ main > section:last-child {
     main > section {
         padding-bottom: 1.5rem;
         margin-bottom: 1.5rem;
+    }
+    
+    #hero h1 {
+        font-size: 1.8rem;
+        border-right-width: 2px;
+        animation: 
+            typewriter 2.5s steps(20, end) 1s 1 normal both,
+            blinkCursor 1s step-end infinite;
+    }
+    
+    #hero {
+        padding: 1.5rem 0;
+    }
+    
+    #hero p {
+        font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Ensure touch targets are at least 44px */
+    .nav-links li a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #lang-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    #hamburger-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .language-card {
+        min-height: 44px;
     }
 }
 
@@ -241,9 +326,60 @@ nav {
     }
 }
 
-/* Future: Hero Section Styling */
-/* Large headline with newspaper-style formatting */
-/* #hero { ... } */
+/* Hero Section Styling */
+#hero {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+/* Typewriter animation for hero heading */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--emphasis-color); }
+}
+
+#hero h1 {
+    font-size: 3rem;
+    font-family: var(--font-mono);
+    margin-bottom: 1rem;
+    color: var(--emphasis-color);
+    /* Ink bleed text shadow effect */
+    text-shadow: 0 0 1px rgba(139, 69, 19, 0.3);
+    /* Typewriter effect */
+    overflow: hidden;
+    border-right: 3px solid var(--emphasis-color);
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    animation: 
+        typewriter 3.5s steps(40, end) 1s 1 normal both,
+        blinkCursor 1s step-end infinite;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    color: var(--muted-color);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Vintage print effects for all headings */
+h2 {
+    /* Slight ink bleed effect */
+    text-shadow: 0 0 1px rgba(44, 44, 44, 0.2);
+    /* Subtle font weight variation */
+    font-weight: 600;
+}
+
+h3 {
+    text-shadow: 0 0 0.5px rgba(44, 44, 44, 0.15);
+}
 
 /* Future: Timeline Section Styling */
 /* Decade-based timeline with vintage aesthetics */
@@ -377,6 +513,53 @@ nav {
 
 .language-card.expanded::after {
     content: attr(data-close);
+}
+
+/* Scroll to top button */
+#scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--ink-color);
+    color: var(--paper-color);
+    border: 2px solid var(--emphasis-color);
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scroll-top:hover {
+    background-color: var(--emphasis-color);
+    transform: translateY(-2px);
+}
+
+/* Mobile scroll top button positioning */
+@media (max-width: 767px) {
+    #scroll-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
 }
 
 /* Card Grid Layout */

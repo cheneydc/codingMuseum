@@ -120,6 +120,28 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(setCardLocalizationStrings, 100);
         });
     }
+    
+    // Scroll to top button functionality
+    const scrollTopBtn = document.getElementById('scroll-top');
+    
+    if (scrollTopBtn) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Scroll to top when clicked
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     console.log('Coding Museum initialized successfully');
 });
