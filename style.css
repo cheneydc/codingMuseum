@@ -311,7 +311,6 @@ nav {
         background-color: var(--paper-color);
         flex-direction: column;
         gap: 0.5rem;
-        padding: 1rem;
         border: 1px solid var(--ink-color);
         border-top: none;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);

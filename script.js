@@ -1,8 +1,5 @@
 // Coding Museum - Programming Language History Website
-// Bilingual: Chinese/English support
-// Theme: Retro newspaper/magazine style museum
 
-// Wait for DOM to be fully loaded before executing JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     const langToggleBtn = document.getElementById('lang-toggle');
     const STORAGE_KEY = 'museum-language';
@@ -119,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update card strings when language is switched
     if (langToggleBtn) {
         langToggleBtn.addEventListener('click', function() {
-            setTimeout(setCardLocalizationStrings, 100);
+            setCardLocalizationStrings();
         });
     }
     
@@ -147,14 +144,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Coding Museum initialized successfully');
 });
-
-// Future: Language data structure for 10 programming languages
-// const programmingLanguages = [
-//     { name: 'Fortran', year: 1957, description: '...' },
-//     { name: 'Lisp', year: 1958, description: '...' },
-//     // ... more languages
-// ];
-
-// Future: Functions for interactive features
-// function scrollToDecade(decade) { ... }
-// function showExhibit(languageId) { ... }
