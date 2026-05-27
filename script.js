@@ -40,6 +40,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Intersection Observer for active navigation highlighting
+    const sections = document.querySelectorAll('main > section');
+    const navLinks = document.querySelectorAll('.nav-links li a[href^="#"]');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Hamburger menu toggle functionality
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    if (hamburgerToggle && navLinksContainer) {
+        hamburgerToggle.addEventListener('click', function() {
+            const isOpen = navLinksContainer.classList.contains('open');
+            navLinksContainer.classList.toggle('open');
+            hamburgerToggle.classList.toggle('open');
+            hamburgerToggle.setAttribute('aria-expanded', !isOpen);
+        });
+
+        // Close menu when clicking a navigation link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinksContainer.classList.remove('open');
+                hamburgerToggle.classList.remove('open');
+                hamburgerToggle.setAttribute('aria-expanded', false);
+            });
+        });
+    }
+
     console.log('Coding Museum initialized successfully');
 });
 
