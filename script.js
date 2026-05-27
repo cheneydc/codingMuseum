@@ -90,6 +90,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Card click-to-expand functionality
+    const languageCards = document.querySelectorAll('.language-card');
+    
+    function setCardLocalizationStrings() {
+        const currentLang = localStorage.getItem(STORAGE_KEY) || 'zh';
+        const readMoreText = currentLang === 'zh' ? '展开全文' : 'Read more';
+        const closeText = currentLang === 'zh' ? '收起' : 'Close';
+        
+        languageCards.forEach(card => {
+            card.setAttribute('data-read-more', readMoreText);
+            card.setAttribute('data-close', closeText);
+        });
+    }
+    
+    // Initialize card localization
+    setCardLocalizationStrings();
+    
+    // Add click event to cards
+    languageCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+        });
+    });
+    
+    // Update card strings when language is switched
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', function() {
+            setTimeout(setCardLocalizationStrings, 100);
+        });
+    }
+
     console.log('Coding Museum initialized successfully');
 });
 
