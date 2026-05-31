@@ -1121,7 +1121,7 @@ header h1 {
 
 .page-footer small {
     color: #ddd8ce;
-    font-family: var(--font-mono);
+    font-family: var(--font-display);
 }
 
 .page-footer .footer-link {
