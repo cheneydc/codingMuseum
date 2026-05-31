@@ -1,0 +1,66 @@
+name: Minify and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install minifiers
+        run: |
+          npm install -g html-minifier-terser clean-css-cli terser
+
+      - name: Minify HTML
+        run: |
+          npx html-minifier-terser \
+            --collapse-whitespace \
+            --remove-comments \
+            --remove-redundant-attributes \
+            --remove-script-type-attributes \
+            --remove-style-link-type-attributes \
+            --use-short-doctype \
+            --minify-css true \
+            --minify-js true \
+            -o index.html \
+            index.html
+
+      - name: Minify CSS
+        run: |
+          npx cleancss -o style.css style.css
+
+      - name: Minify JS
+        run: |
+          npx terser script.js -o script.js \
+            --compress passes=2 \
+            --mangle \
+            --format comments=false
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
