@@ -1,9 +1,19 @@
 // Coding Museum - Programming Language History Website
+// Horizontal Timeline Navigation Implementation
 
 document.addEventListener('DOMContentLoaded', function() {
     const langToggleBtn = document.getElementById('lang-toggle');
     const STORAGE_KEY = 'museum-language';
+    const museumTrack = document.querySelector('.museum-track');
+    const museumStops = document.querySelectorAll('.museum-stop');
+    const timelineDots = document.querySelectorAll('.timeline-dot');
+    const navPrevBtn = document.querySelector('.nav-prev');
+    const navNextBtn = document.querySelector('.nav-next');
+    let currentStopIndex = 0;
 
+    /**************************
+     * Language Switching (Keep existing functionality)
+     **************************/
     function switchLanguage(lang) {
         const elements = document.querySelectorAll('[data-zh]');
 
@@ -37,110 +47,155 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Intersection Observer for active navigation highlighting
-    const sections = document.querySelectorAll('main > section');
-    const navLinks = document.querySelectorAll('.nav-links li a[href^="#"]');
+    /**************************
+     * New Horizontal Timeline Navigation Implementation
+     **************************/
 
+    // Scroll to specific stop by index
+    function scrollToStop(index) {
+        if (index < 0 || index >= museumStops.length) return;
+        
+        const targetStop = museumStops[index];
+        targetStop.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'start',
+            block: 'nearest'
+        });
+        
+        currentStopIndex = index;
+        updateActiveDot(index);
+        updateUrlHash(targetStop.id);
+    }
+
+    // Update active timeline dot
+    function updateActiveDot(activeIndex) {
+        timelineDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeIndex);
+        });
+    }
+
+    // Update URL hash with current stop ID
+    function updateUrlHash(stopId) {
+        history.replaceState(null, null, `#${stopId}`);
+    }
+
+    // Get current visible stop index using Intersection Observer
     const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -70% 0px',
-        threshold: 0
+        root: museumTrack,
+        rootMargin: '0px',
+        threshold: 0.6 // Trigger when 60% of the stop is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const sectionId = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    link.removeAttribute('aria-current');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                        link.setAttribute('aria-current', 'page');
-                    }
-                });
+                const stopId = entry.target.id;
+                currentStopIndex = Array.from(museumStops).findIndex(stop => stop.id === stopId);
+                updateActiveDot(currentStopIndex);
+                updateUrlHash(stopId);
             }
         });
     }, observerOptions);
 
-    sections.forEach(section => {
-        observer.observe(section);
+    museumStops.forEach(stop => {
+        observer.observe(stop);
     });
 
-    // Hamburger menu toggle functionality
-    const hamburgerToggle = document.getElementById('hamburger-toggle');
-    const navLinksContainer = document.querySelector('.nav-links');
+    /**************************
+     * Navigation Event Handlers
+     **************************/
 
-    if (hamburgerToggle && navLinksContainer) {
-        hamburgerToggle.addEventListener('click', function() {
-            const isOpen = navLinksContainer.classList.contains('open');
-            navLinksContainer.classList.toggle('open');
-            hamburgerToggle.classList.toggle('open');
-            hamburgerToggle.setAttribute('aria-expanded', !isOpen);
-        });
-
-        // Close menu when clicking a navigation link
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinksContainer.classList.remove('open');
-                hamburgerToggle.classList.remove('open');
-                hamburgerToggle.setAttribute('aria-expanded', false);
-            });
-        });
-    }
-
-    // Card click-to-expand functionality
-    const languageCards = document.querySelectorAll('.language-card');
-    
-    function setCardLocalizationStrings() {
-        const currentLang = localStorage.getItem(STORAGE_KEY) || 'zh';
-        const readMoreText = currentLang === 'zh' ? '展开全文' : 'Read more';
-        const closeText = currentLang === 'zh' ? '收起' : 'Close';
-        
-        languageCards.forEach(card => {
-            card.setAttribute('data-read-more', readMoreText);
-            card.setAttribute('data-close', closeText);
-        });
-    }
-    
-    // Initialize card localization
-    setCardLocalizationStrings();
-    
-    // Add click event to cards
-    languageCards.forEach(card => {
-        card.addEventListener('click', function() {
-            this.classList.toggle('expanded');
+    // Timeline dot click handler
+    timelineDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            scrollToStop(index);
         });
     });
-    
-    // Update card strings when language is switched
-    if (langToggleBtn) {
-        langToggleBtn.addEventListener('click', function() {
-            setCardLocalizationStrings();
+
+    // Previous button click handler
+    navPrevBtn.addEventListener('click', () => {
+        scrollToStop(currentStopIndex - 1);
+    });
+
+    // Next button click handler
+    navNextBtn.addEventListener('click', () => {
+        scrollToStop(currentStopIndex + 1);
+    });
+
+    // Keyboard navigation (Arrow Left/Right)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            scrollToStop(currentStopIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            scrollToStop(currentStopIndex + 1);
+        }
+    });
+
+    // Mouse wheel to horizontal scroll conversion
+    museumTrack.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        // Adjust scroll speed as needed
+        museumTrack.scrollBy({
+            left: e.deltaY * 2, // Multiply for faster scroll
+            behavior: 'smooth'
         });
-    }
-    
-    // Scroll to top button functionality
-    const scrollTopBtn = document.getElementById('scroll-top');
-    
-    if (scrollTopBtn) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 500) {
-                scrollTopBtn.classList.add('show');
+    }, { passive: false });
+
+    /**************************
+     * Mobile Touch Swipe Detection
+     **************************/
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance for swipe
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left → go to next stop
+                scrollToStop(currentStopIndex + 1);
             } else {
-                scrollTopBtn.classList.remove('show');
+                // Swipe right → go to previous stop
+                scrollToStop(currentStopIndex - 1);
             }
-        });
-        
-        // Scroll to top when clicked
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+        }
     }
 
-    console.log('Coding Museum initialized successfully');
+    museumTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    museumTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    /**************************
+     * Initial Load Handling
+     **************************/
+    // Handle initial hash in URL to jump to correct stop
+    function handleInitialHash() {
+        const hash = window.location.hash.slice(1); // Remove # character
+        if (!hash) return;
+
+        const targetIndex = Array.from(museumStops).findIndex(stop => stop.id === hash);
+        if (targetIndex !== -1) {
+            // Scroll immediately without animation on page load
+            museumStops[targetIndex].scrollIntoView({
+                behavior: 'instant',
+                inline: 'start',
+                block: 'nearest'
+            });
+            currentStopIndex = targetIndex;
+            updateActiveDot(targetIndex);
+        }
+    }
+
+    // Initialize on page load
+    handleInitialHash();
+
+    console.log('Coding Museum Horizontal Timeline initialized successfully');
 });
