@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
             langToggleBtn.textContent = lang === 'zh' ? 'English' : '中文';
         }
 
+        updateMobileLangBtn(lang);
+
         localStorage.setItem(STORAGE_KEY, lang);
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
 
@@ -48,14 +50,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const savedLang = localStorage.getItem(STORAGE_KEY) || 'zh';
+
+    const mobileLangBtn = document.querySelector('.mobile-lang-toggle');
+
     switchLanguage(savedLang);
 
     if (langToggleBtn) {
         langToggleBtn.addEventListener('click', function() {
-            const currentLang = localStorage.getItem(STORAGE_KEY) || 'zh';
-            const newLang = currentLang === 'zh' ? 'en' : 'zh';
-            switchLanguage(newLang);
+            toggleLang();
         });
+    }
+
+    if (mobileLangBtn) {
+        mobileLangBtn.addEventListener('click', function() {
+            toggleLang();
+        });
+    }
+
+    function toggleLang() {
+        const currentLang = localStorage.getItem(STORAGE_KEY) || 'zh';
+        const newLang = currentLang === 'zh' ? 'en' : 'zh';
+        switchLanguage(newLang);
+    }
+
+    function updateMobileLangBtn(lang) {
+        if (mobileLangBtn) {
+            mobileLangBtn.textContent = lang === 'zh' ? 'EN' : '中';
+        }
     }
 
     /**************************

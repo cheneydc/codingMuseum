@@ -1379,6 +1379,43 @@ header h1 {
     z-index: 1;
 }
 
+/* ======= MOBILE LANGUAGE TOGGLE ======= */
+
+.mobile-lang-toggle {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .mobile-lang-toggle {
+        display: flex;
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background-color: rgba(26, 26, 26, 0.88);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        color: var(--accent-gold);
+        border: 1px solid var(--border-subtle);
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 999;
+        transition: all 0.2s ease;
+    }
+
+    .mobile-lang-toggle:active {
+        transform: scale(0.92);
+        background-color: var(--accent-gold);
+        color: var(--bg-dark);
+    }
+}
+
 /* ======= SCROLL REVEAL ANIMATION ======= */
 
 .reveal {
