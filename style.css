@@ -157,13 +157,16 @@ header h1 {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .museum-stop > h2::after {
     display: none;
 }
 
-/* Decade emoji icons via h2::before - removed */
 
 /* ======= STOP LABEL ======= */
 
@@ -750,6 +753,21 @@ header h1 {
     box-shadow: 0 0 10px var(--accent-gold), 0 0 20px rgba(201, 168, 76, 0.3);
 }
 
+/* Mobile nav wrapper - hidden on desktop */
+.mobile-nav-wrap {
+    display: none;
+}
+
+/* Mobile nav trigger button */
+.mobile-nav-trigger {
+    display: none;
+}
+
+/* Mobile vertical timeline panel - hidden on desktop */
+.mobile-timeline {
+    display: none;
+}
+
 /* ======= LANGUAGE CARD BASE ======= */
 
 .language-card {
@@ -1017,12 +1035,90 @@ header h1 {
 
 @media (max-width: 767px) {
     header {
-        padding: 0.75rem 1rem;
+        padding: 0.5rem 0.75rem;
     }
 
     header h1 {
-        font-size: 1.25rem;
+        font-size: 0.8rem;
+        white-space: normal;
+        line-height: 1.15;
+        text-align: left;
+        letter-spacing: 0.04em;
+        flex: 1;
+        min-width: 0;
     }
+
+    .header-container {
+        gap: 0;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-top-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-nav-wrap {
+        display: inline-block;
+        flex-shrink: 0;
+    }
+
+    .mobile-nav-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+        padding: 0.08rem 0.2rem;
+        background-color: transparent;
+        color: var(--accent-gold);
+        border: none;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        line-height: 1;
+    }
+
+    .mobile-nav-trigger:focus {
+        outline: none;
+    }
+
+    .mobile-nav-dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--accent-gold);
+        flex-shrink: 0;
+        box-shadow: 0 0 2px var(--accent-gold);
+    }
+
+    .mobile-timeline {
+        display: none;
+        flex-direction: column;
+        padding: 0.15rem 0;
+        max-height: 10rem;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        position: fixed;
+        top: 46px;
+        right: 0.75rem;
+        z-index: 999;
+        background-color: rgba(20, 20, 20, 0.92);
+        border: none;
+    }
+
+    .mobile-timeline.open {
+        display: flex;
+    }
+
+    .mobile-timeline::-webkit-scrollbar {
+        display: none;
+    }
+
 
     .museum-stop {
         padding: 4.5rem 1rem 3rem;
@@ -1087,6 +1183,79 @@ header h1 {
     .language-card .card-body,
     .language-card.images-row .card-image {
         flex-direction: column;
+    }
+
+    .decade-nav {
+        display: none;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+
+    .mobile-nav-trigger {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.15rem 0.4rem;
+        background-color: transparent;
+        color: var(--accent-gold);
+        border: none;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        width: 100%;
+    }
+
+    .mobile-nav-trigger:focus {
+        outline: none;
+    }
+
+
+    /* Vertical gold track line */
+    .mobile-timeline-item {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+        padding: 0.35rem 0.2rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.04em;
+        transition: all 0.2s ease;
+        background-color: transparent;
+    }
+
+    .mobile-timeline-item::before {
+        content: '';
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: transparent;
+        border: 1px solid var(--accent-gold-dim);
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-timeline-item.active {
+        color: var(--accent-gold);
+    }
+
+    .mobile-timeline-item.active::before {
+        width: 4px;
+        height: 4px;
+        background: var(--accent-gold);
+        border-color: var(--accent-gold);
+        box-shadow: 0 0 3px var(--accent-gold);
+    }
+
+    .mobile-timeline-item:hover {
+        color: var(--accent-gold);
+        background-color: rgba(201, 168, 76, 0.05);
     }
 }
 
