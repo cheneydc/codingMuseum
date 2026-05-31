@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         localStorage.setItem(STORAGE_KEY, lang);
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+        // Toggle footer language
+        const footerZh = document.querySelector('.footer-zh');
+        const footerEn = document.querySelector('.footer-en');
+        if (footerZh && footerEn) {
+            footerZh.style.display = lang === 'zh' ? 'inline' : 'none';
+            footerEn.style.display = lang === 'en' ? 'inline' : 'none';
+        }
     }
 
     const savedLang = localStorage.getItem(STORAGE_KEY) || 'zh';
