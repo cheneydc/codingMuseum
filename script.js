@@ -204,6 +204,39 @@ document.addEventListener('DOMContentLoaded', function() {
     revealElements.forEach(el => revealObserver.observe(el));
 
     /**************************
+     * Mobile Card Spotlight
+     **************************/
+    var spotCards = document.querySelectorAll('.language-card');
+    var spotRaf = null, spotActive = null;
+
+    function runSpotlight() {
+        var ch = window.innerHeight * 0.5;
+        var best = null, bestDist = Infinity;
+        for (var i = 0; i < spotCards.length; i++) {
+            var r = spotCards[i].getBoundingClientRect();
+            var y = r.top + (r.bottom - r.top) * 0.5;
+            var dist = Math.abs(y - ch);
+            if (dist < bestDist) { bestDist = dist; best = spotCards[i]; }
+        }
+        if (best !== spotActive) {
+            if (spotActive) spotActive.classList.remove('card-visible');
+            if (best) best.classList.add('card-visible');
+            spotActive = best;
+        }
+    }
+
+    function scheduleSpotlight() {
+        if (spotRaf) cancelAnimationFrame(spotRaf);
+        spotRaf = requestAnimationFrame(function() { runSpotlight(); spotRaf = null; });
+    }
+
+    window.addEventListener('scroll', scheduleSpotlight, { passive: true });
+    window.addEventListener('resize', scheduleSpotlight);
+    document.addEventListener('touchmove', scheduleSpotlight, { passive: true });
+    setTimeout(runSpotlight, 100);
+    setTimeout(runSpotlight, 500);
+
+    /**************************
      * Initial Hash Handling
      **************************/
     const hash = window.location.hash.slice(1);
