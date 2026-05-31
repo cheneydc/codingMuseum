@@ -738,8 +738,22 @@ header h1 {
 
 .decade-nav {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.3rem;
     align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.decade-nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold-dim), var(--accent-gold), var(--accent-gold-dim), transparent);
+    opacity: 0.3;
 }
 
 .decade-nav a {
@@ -749,20 +763,41 @@ header h1 {
     text-decoration: none;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 0.2rem 0.45rem;
-    border: 1px solid transparent;
+    padding: 0.2rem 0.35rem;
+    border: none;
     transition: all 0.2s ease;
     white-space: nowrap;
+    position: relative;
+}
+
+.decade-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-gold-dim);
+    opacity: 0.4;
+    transition: all 0.3s ease;
 }
 
 .decade-nav a:hover {
     color: var(--accent-gold);
-    border-color: var(--border-subtle);
 }
 
 .decade-nav a.active {
     color: var(--accent-gold);
-    border-color: var(--accent-gold-dim);
+}
+
+.decade-nav a.active::after {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-gold);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--accent-gold), 0 0 20px rgba(201, 168, 76, 0.3);
 }
 
 /* ======= LANGUAGE CARD BASE ======= */
