@@ -109,3 +109,13 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ## License
 
 This project is created for educational purposes to showcase programming language history in an engaging, retro-styled format.
+
+---
+
+## ☕️ 请作者喝杯咖啡 / Buy Me a Coffee
+
+如果这个博物馆让你会心一笑，欢迎扫码打赏，鼓励持续发掘更多代码化石 🦴
+
+| 微信打赏 | 支付宝打赏 |
+|:--------:|:---------:|
+| ![WeChat](assets/images/wechat_reward.png) | ![Alipay](assets/images/alipay_reward.png) |
