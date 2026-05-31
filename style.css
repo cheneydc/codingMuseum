@@ -1194,26 +1194,6 @@ header h1 {
     }
 
 
-    .mobile-nav-trigger {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.15rem 0.4rem;
-        background-color: transparent;
-        color: var(--accent-gold);
-        border: none;
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
-        cursor: pointer;
-        white-space: nowrap;
-        transition: all 0.2s ease;
-        width: 100%;
-    }
-
-    .mobile-nav-trigger:focus {
-        outline: none;
-    }
-
 
     /* Vertical gold track line */
     .mobile-timeline-item {
