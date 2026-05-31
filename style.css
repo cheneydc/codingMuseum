@@ -476,15 +476,6 @@ header h1 {
     margin: 1rem auto;
 }
 
-/* Hero smaller subtitle */
-.hero-subtitle {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent-gold-dim);
-    margin-top: 0.5rem;
-}
 
 @keyframes typewriter {
     from { width: 0; }
