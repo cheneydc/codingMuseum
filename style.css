@@ -1263,6 +1263,22 @@ header h1 {
     html .language-card.card-visible::after {
         opacity: 0.7 !important;
     }
+
+    /* 终端卡片不受 card-visible 金色边框影响，保持原有绿黑风格 */
+    html .language-card.terminal-card.card-visible {
+        transform: none !important;
+        border-color: rgba(0, 255, 0, 0.2) !important;
+        box-shadow: none !important;
+        background: linear-gradient(180deg, #0a0e0a 60%, transparent) !important;
+    }
+    html .language-card.terminal-card.card-visible::before,
+    html .language-card.terminal-card.card-visible::after {
+        border-color: rgba(0, 255, 0, 0.15) !important;
+        opacity: 1 !important;
+    }
+    html .language-card.terminal-card.card-visible::after {
+        display: none !important;
+    }
 }
 
 /* ======= PAGE FOOTER ======= */
