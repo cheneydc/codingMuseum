@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — 代码考古博物馆 / Code Archaeology Museum</title>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #1a1a1a;
+            --text-primary: #f0ece4;
+            --text-muted: #999080;
+            --accent-gold: #c9a84c;
+            --accent-gold-dim: #8a7535;
+            --border-subtle: rgba(201, 168, 76, 0.2);
+            --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+            --font-serif: 'Source Serif Pro', 'Noto Serif SC', Georgia, serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+        body {
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            border-bottom: 3px double var(--accent-gold-dim);
+            padding: 0.5rem 2rem;
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        .emblem {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        .emblem svg { width: 100%; height: 100%; }
+        .code404 {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            letter-spacing: 0.05em;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--accent-gold-dim);
+            letter-spacing: 0.08em;
+            margin-bottom: 2rem;
+        }
+        .divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold-dim), var(--accent-gold), var(--accent-gold-dim), transparent);
+            margin: 0 auto 2rem;
+        }
+        .message {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        .curator {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-gold-dim);
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+        .btn-back {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+        }
+        .page-footer {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            opacity: 0.35;
+            font-size: 0.75rem;
+        }
+        .page-footer small {
+            color: #ddd8ce;
+            font-family: var(--font-display);
+        }
+        @media (max-width: 767px) {
+            header { padding: 0.5rem 1rem; }
+            header h1 { font-size: 1rem; letter-spacing: 0.06em; }
+            .code404 { font-size: 3.5rem; }
+            .subtitle { font-size: 1rem; }
+            .message { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>代码考古博物馆</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="emblem">
+            <svg viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#c9a84c"/>
+                        <stop offset="100%" stop-color="#8a7535"/>
+                    </linearGradient>
+                </defs>
+                <polygon points="50,4 96,50 50,96 4,50" fill="none" stroke="url(#gold)" stroke-width="3"/>
+                <polygon points="50,14 86,50 50,86 14,50" fill="none" stroke="#8a7535" stroke-width="1.5"/>
+                <text x="50" y="62" text-anchor="middle" font-family="'Courier New', monospace" font-size="36" font-weight="bold" fill="#c9a84c">&lt;/&gt;</text>
+            </svg>
+        </div>
+
+        <div class="code404">404</div>
+        <div class="subtitle">展品未找到 / Artifact Not Found</div>
+        <div class="divider"></div>
+
+        <div class="message">
+            博物馆0531号AI管理员报告：<br>
+            您所寻找的代码化石在此处待发掘。<br>
+            可能已被时间尘埃掩埋，<br>
+            或存在于另一条时间线中。
+        </div>
+
+        <p class="curator">— Curator 0531: The artifact you seek awaits excavation at this location.</p>
+
+        <a class="btn-back" href="/">← 返回博物馆入口 / Return to Museum</a>
+    </main>
+
+    <div class="page-footer">
+        <small>© 2026 Code Archaeology Museum · Archived by cheneydc · Zero human code</small>
+    </div>
+</body>
+</html>
