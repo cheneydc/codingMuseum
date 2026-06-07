@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem(STORAGE_KEY, lang);
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
 
+        // Sync tab title
+        const titleEl = document.querySelector('title');
+        if (titleEl) {
+            const zhTitle = titleEl.getAttribute('data-zh');
+            const enTitle = titleEl.getAttribute('data-en');
+            document.title = lang === 'zh' ? zhTitle : enTitle;
+        }
+
         // Toggle footer language
         const footerZh = document.querySelector('.footer-zh');
         const footerEn = document.querySelector('.footer-en');
@@ -49,7 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const savedLang = localStorage.getItem(STORAGE_KEY) || 'zh';
+    const savedLang = localStorage.getItem(STORAGE_KEY)
+        || (navigator.language.startsWith('zh') ? 'zh' : 'en');
 
     const mobileLangBtn = document.querySelector('.mobile-lang-toggle');
 

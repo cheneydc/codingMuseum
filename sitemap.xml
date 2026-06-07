@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://codemuseum.wiki/</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/eniac.jpg</image:loc>
+      <image:title>ENIAC Computer - 1946</image:title>
+      <image:caption>The first general-purpose electronic digital computer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/assembly_code.jpg</image:loc>
+      <image:title>Assembly Language Code - 1940s</image:title>
+      <image:caption>Early machine code and assembly language</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/ibm_card_punch.jpg</image:loc>
+      <image:title>IBM 029 Card Punch - 1940s</image:title>
+      <image:caption>Early computing punch card equipment</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/mainframe.jpg</image:loc>
+      <image:title>IBM 704 Mainframe - 1957</image:title>
+      <image:caption>FORTRAN ran on the IBM 704 mainframe computer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/cobol_code.jpg</image:loc>
+      <image:title>COBOL Program Code - 1959</image:title>
+      <image:caption>COBOL was designed for business data processing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/lisp_machine.jpg</image:loc>
+      <image:title>Lisp Machine - 1970s</image:title>
+      <image:caption>MIT's dedicated Lisp Machine computer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/lisp_machine2.jpg</image:loc>
+      <image:title>CADR Lisp Machine</image:title>
+      <image:caption>Second-generation Lisp Machine from MIT</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/algol_punchcard.jpg</image:loc>
+      <image:title>ALGOL 60 Punch Cards - 1960</image:title>
+      <image:caption>ALGOL 60 pioneered structured programming</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/dennis_ritchie.jpg</image:loc>
+      <image:title>Dennis Ritchie - Creator of C</image:title>
+      <image:caption>Dennis Ritchie created the C programming language in 1972</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/bjarne_stroustrup.jpg</image:loc>
+      <image:title>Bjarne Stroustrup - Creator of C++</image:title>
+      <image:caption>Bjarne Stroustrup extended C with object-oriented programming in 1985</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/python_logo.png</image:loc>
+      <image:title>Python Logo - 1991</image:title>
+      <image:caption>Python focuses on readability and versatility</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/java_logo.png</image:loc>
+      <image:title>Java Logo - 1995</image:title>
+      <image:caption>Java is the 'write once, run anywhere' enterprise language</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/js_shield.svg</image:loc>
+      <image:title>JavaScript Logo - 1995</image:title>
+      <image:caption>JavaScript is the scripting language of the web</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/datacenter.jpg</image:loc>
+      <image:title>Data Center - 2000s</image:title>
+      <image:caption>Modern data center infrastructure</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://codemuseum.wiki/assets/images/favicon.svg</image:loc>
+      <image:title>Code Archaeology Museum Favicon</image:title>
+      <image:caption>&lt;/&gt; logo for Code Archaeology Museum</image:caption>
+    </image:image>
   </url>
 </urlset>

@@ -64,3 +64,9 @@ jobs:
       - name: Deploy to Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify Search Engines
+        if: success()
+        run: |
+          curl -s -o /dev/null "https://www.google.com/ping?sitemap=https://codemuseum.wiki/sitemap.xml"
+          curl -s -o /dev/null "https://www.bing.com/ping?sitemap=https://codemuseum.wiki/sitemap.xml"
